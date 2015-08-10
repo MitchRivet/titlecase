@@ -48,7 +48,7 @@
         {
             //Arrange
             $test_TitleCaseGenerator = new TitleCaseGenerator;
-            $input = "a"; 
+            $input = "a";
 
             //Act
             $result = $test_TitleCaseGenerator->makeTitleCase($input);
@@ -69,8 +69,19 @@
             //Assert
             $this->assertEquals("The Little Mermaid", $result);
         }
+
+        function test_makeTitleCase_nonLetterCharacters()
+        {
+            //Arrange
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "47 mermaids?";
+
+            //Act
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+
+            //Assert
+            $this->assertEquals("47 Mermaids?", $result);
+        }
     }
-
-
 
 ?>
