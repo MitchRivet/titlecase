@@ -1,6 +1,11 @@
 <?php
 class TitleCaseGenerator
 {
+    public $prepositions = array(
+        'on', 'in', 'at', 'since', 'for'
+    );
+
+
     function makeTitleCase($input_title)
     {
         $title_array = explode(" ", $input_title);

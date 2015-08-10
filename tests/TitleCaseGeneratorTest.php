@@ -106,7 +106,20 @@
             $result = $test_TitleCaseGenerator->makeTitleCase($input);
 
             //Assert
-            $this->assertEquals("Hello MacGroober", $result); 
+            $this->assertEquals("Hello MacGroober", $result);
+        }
+
+        function test_makeTitleCase_prepositions()
+        {
+            //Arrange
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "on friday It HAd Been Twelve Years SInce The Push FOr TrANSparency";
+
+            //Act
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+
+            //Assert
+            $this->assertEquals("on Friday It Had Been Twelve Years since The Push for Transparency", $result);
         }
 
     }
