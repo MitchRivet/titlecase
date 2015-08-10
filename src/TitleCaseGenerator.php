@@ -1,14 +1,13 @@
 <?php
+
 class TitleCaseGenerator
 {
 
-
-
     function makeTitleCase($input_title)
     {
-        $prepositions = array(
-            'on', 'in', 'at', 'since', 'for', 'to', 'the'
-        );
+        // use list of designated words
+        include "designated_words.php";
+
         $title_array = explode(" ", $input_title);
         $output = array();
         $count = 0;
@@ -34,7 +33,7 @@ class TitleCaseGenerator
                 $restOfNameTitleCase = ucfirst($restOfName);
                 $prefix_mac = ucfirst($prefix_mac);
                 $output_word = $prefix_mac . $restOfNameTitleCase;
-            } elseif (in_array($word_lower, $prepositions)) {
+            } elseif (in_array($word_lower, $designated_words)) {
                 // If word is in preposition list, then check for 1st position.
                 // If it's the first word in the title, capitalize it.
                 if ($count == 0) {
