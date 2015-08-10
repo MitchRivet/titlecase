@@ -44,6 +44,19 @@
             $this->assertEquals("The Little Mermaid", $result);
         }
 
+        function test_makeTitleCase_oneLetter()
+        {
+            //Arrange
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "a"; 
+
+            //Act
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+
+            //Assert
+            $this->assertEquals("A", $result);
+        }
+
         function test_makeTitleCase_manageMixedCase()
         {
             //Arrange
