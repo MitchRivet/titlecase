@@ -7,9 +7,18 @@ class TitleCaseGenerator
         $output = array();
         foreach ($title_array as $word) {
 
-            // for each word in title array, make all letters lowercase,
-            // capitalize the first letter and add it to the output array.
-            array_push($output, ucfirst(strtolower($word)));
+            // Check for Mc prefix in a given word, then apply title case rules
+            // Otherwise, make all letters lowercase and capitalize the first letter.
+            // In both cases add the title-cased word to the output array.
+            $prefix_mc = strtolower(substr($word, 0, 2));
+            if ($prefix_mc == "mc") {
+                $restOfName = substr($word, 2);
+                $restOfNameTitleCase = ucfirst(strtolower($restOfName));
+                $prefix_mc = ucfirst($prefix_mc);
+                array_push($output, $prefix_mc . $restOfNameTitleCase);
+            } else {
+                array_push($output, ucfirst(strtolower($word)));
+            }
         }
         return implode(" ", $output);
     }

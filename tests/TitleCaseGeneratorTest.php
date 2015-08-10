@@ -82,6 +82,19 @@
             //Assert
             $this->assertEquals("47 Mermaids?", $result);
         }
+
+        function test_makeTitleCase_mcSurname()
+        {
+            //Arrange
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "hello McGroober";
+
+            //Act
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+
+            //Assert
+            $this->assertEquals("Hello McGroober", $result);
+        }
     }
 
 ?>
