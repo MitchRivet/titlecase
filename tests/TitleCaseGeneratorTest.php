@@ -95,6 +95,20 @@
             //Assert
             $this->assertEquals("Hello McGroober", $result);
         }
+
+        function test_makeTitleCase_macSurname()
+        {
+            //Arrange
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "hello macgroober";
+
+            //Act
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+
+            //Assert
+            $this->assertEquals("Hello MacGroober", $result); 
+        }
+
     }
 
 ?>
