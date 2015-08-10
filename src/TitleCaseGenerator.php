@@ -7,10 +7,11 @@ class TitleCaseGenerator
     function makeTitleCase($input_title)
     {
         $prepositions = array(
-            'on', 'in', 'at', 'since', 'for'
+            'on', 'in', 'at', 'since', 'for', 'to', 'the'
         );
         $title_array = explode(" ", $input_title);
         $output = array();
+        $count = 0;
         foreach ($title_array as $word) {
             // initialize output word
             $output_word = "";
@@ -34,10 +35,13 @@ class TitleCaseGenerator
                 $prefix_mac = ucfirst($prefix_mac);
                 $output_word = $prefix_mac . $restOfNameTitleCase;
             } elseif (in_array($word_lower, $prepositions)) {
-                // We already made the word lowercase so that we could test
-                // for membership in prepositions, so we don't need to do
-                // that again, we can just use the $word_lower variable.
-                $output_word = $word_lower;
+                // If word is in preposition list, then check for 1st position.
+                // If it's the first word in the title, capitalize it.
+                if ($count == 0) {
+                    $output_word = ucfirst($word_lower);
+                } else {
+                    $output_word = $word_lower;
+                }
             } else {
                 $output_word = ucfirst($word_lower);
             }
@@ -45,6 +49,7 @@ class TitleCaseGenerator
             // no matter what we checked for in between, we still need to add
             // the changed word to the title array
             array_push($output, $output_word);
+            $count++;
         }
         return implode(" ", $output);
     }

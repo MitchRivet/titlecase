@@ -109,19 +109,19 @@
             $this->assertEquals("Hello MacGroober", $result);
         }
 
-        function test_makeTitleCase_prepositions()
+
+        function test_makeTitleCase_prepositionsFirst()
         {
             //Arrange
             $test_TitleCaseGenerator = new TitleCaseGenerator;
-            $input = "on friday It HAd Been Twelve Years SInce The Push FOr TrANSparency";
+            $input = "from the bay to the seaside";
 
             //Act
             $result = $test_TitleCaseGenerator->makeTitleCase($input);
 
             //Assert
-            $this->assertEquals("on Friday It Had Been Twelve Years since The Push for Transparency", $result);
+            $this->assertEquals("From the Bay to the Seaside", $result);
         }
-
     }
 
 ?>
