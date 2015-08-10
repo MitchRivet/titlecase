@@ -12,7 +12,7 @@
             $input = "the little mermaid";
 
             //Act
-            $result = $test_TitleCaseGenerator->makeTitleCase_multipleWords($input);
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
 
             //Assert
             $this->assertEquals("The Little Mermaid", $result);
@@ -25,7 +25,7 @@
             $input = "BEOWULF";
 
             //Act
-            $result = $test_TitleCaseGenerator->makeTitleCase_manageCapsSingleWord($input);
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
 
             //Assert
             $this->assertEquals("Beowulf", $result);
@@ -38,7 +38,7 @@
             $input = "THE LITTLE MERMAID";
 
             //Act
-            $result = $test_TitleCaseGenerator->makeTitleCase_manageCapsMultipleWords($input);
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
 
             //Assert
             $this->assertEquals("The Little Mermaid", $result);
@@ -51,10 +51,10 @@
             $input = "tHe LiTtlE MeRMaiD";
 
             //Act
-            $result = $test_TitleCaseGenerator->makeTitleCase_manageCapsMultipleWords($input);
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
 
             //Assert
-            $this->assertEquals("The Little Mermaid", $result); 
+            $this->assertEquals("The Little Mermaid", $result);
         }
     }
 
